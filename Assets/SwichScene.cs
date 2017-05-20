@@ -1,31 +1,19 @@
-﻿using System;
-using BitBenderGames;
+﻿
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class SwichScene : MonoBehaviour
-{
-    
-    private TouchInputController touchInputController;
-    public GameObject apartment;
-    public void Awake()
-    {
-        //apartment = FindObjectOfType<Camera>();
-        Application.targetFrameRate = 60;
-        touchInputController = apartment.GetComponent<TouchInputController>();
-        
 
-        touchInputController.OnFingerDown += OnFingerDown;
-
-    
-    }
-    private void OnFingerDown(Vector3 screenPosition)
+    public class SwichScene : MonoBehaviour
     {
+    void OnMouseDown()
+    {
+        RaycastHit s = new RaycastHit();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Vector2 oldPosition = new Vector2(transform.localPosition.x, transform.localPosition.z);
+        Debug.Log("RayCast On");
         Application.LoadLevel(1);
-
     }
-
 }
