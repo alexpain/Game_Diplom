@@ -1,31 +1,56 @@
-﻿using System;
-using BitBenderGames;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class SwichScene : MonoBehaviour
 {
-    
-    private TouchInputController touchInputController;
-    public GameObject apartment;
-    public void Awake()
+    public GameObject item;
+    public static List<GameObject> list;
+    public static bool flag;
+    public static int evnt;
+    void Start()
     {
-        //apartment = FindObjectOfType<Camera>();
-        Application.targetFrameRate = 60;
-        touchInputController = apartment.GetComponent<TouchInputController>();
+        if (list == null)
+        {
+            list = new List<GameObject>();
+        }
         
-
-        touchInputController.OnFingerDown += OnFingerDown;
-
-    
+        list.Add(item);
+        evnt = 0;
+        //Debug.Log(list.Count);
     }
-    private void OnFingerDown(Vector3 screenPosition)
+
+    void Update()
     {
-        Application.LoadLevel(1);
+        Random rand = new Random();
 
+        if (evnt == 0)
+        {
+            evnt = rand.Next(0, list.Count);
+            Debug.Log(evnt);
+        }
+        if (flag && list[evnt] == item)
+        {
+            //item = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            //item.renderer.material.mainTexture = Resources.Load(@"New Folder\Materials\road.mat");
+        }
+        
     }
 
+    void OnMouseDown()
+    {
+        Debug.Log(flag);
+        if (list[evnt] == item)
+        {
+            Debug.Log("asdasdasdasdasdasddddddddddddddddddddddddddd");
+        }
+        if (flag && list[evnt] == item)
+        {
+            flag = false;
+            Application.LoadLevel(1);
+        }
+    }
 }
