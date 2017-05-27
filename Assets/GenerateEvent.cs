@@ -34,6 +34,7 @@ public class GenerateEvent : MonoBehaviour
        
 	    if (a > temp)
 	    {
+	        SwichScene.fire = SwichScene.evnt;
             Debug.Log(a);
 	        a = 0;
 	        temp = 0;

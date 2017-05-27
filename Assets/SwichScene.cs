@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.CodeDom;
+using UnityEngine;
+
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -7,10 +9,12 @@ using Random = System.Random;
 
 public class SwichScene : MonoBehaviour
 {
-    public GameObject item;
+    public static GameObject item;
+    public Texture texture;
     public static List<GameObject> list;
     public static bool flag;
     public static int evnt;
+    public static int fire;
     void Start()
     {
         if (list == null)
@@ -20,7 +24,7 @@ public class SwichScene : MonoBehaviour
         
         list.Add(item);
         evnt = 0;
-        //Debug.Log(list.Count);
+
     }
 
     void Update()
@@ -32,10 +36,11 @@ public class SwichScene : MonoBehaviour
             evnt = rand.Next(0, list.Count);
             Debug.Log(evnt);
         }
-        if (flag && list[evnt] == item)
+        if (flag && list[fire] == item)
         {
-            //item = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            //item.renderer.material.mainTexture = Resources.Load(@"New Folder\Materials\road.mat");
+            item.GetComponent<Renderer>().material.mainTexture = texture;
+            
+
         }
         
     }
@@ -43,11 +48,11 @@ public class SwichScene : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(flag);
-        if (list[evnt] == item)
+        if (list[fire] == item)
         {
-            Debug.Log("asdasdasdasdasdasddddddddddddddddddddddddddd");
+            Debug.Log(fire);
         }
-        if (flag && list[evnt] == item)
+        if (flag && list[fire] == item)
         {
             flag = false;
             Application.LoadLevel(1);
