@@ -1,10 +1,5 @@
-﻿using System.CodeDom;
-using UnityEngine;
-
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEngine.UI;
 using Random = System.Random;
 
 public class SwichScene : MonoBehaviour
