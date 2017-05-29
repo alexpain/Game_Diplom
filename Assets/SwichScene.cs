@@ -4,7 +4,7 @@ using Random = System.Random;
 
 public class SwichScene : MonoBehaviour
 {
-    public static GameObject item;
+    public GameObject item;
     public Texture texture;
     public static List<GameObject> list;
     public static bool flag;
