@@ -18,27 +18,40 @@ public class MyUI : MonoBehaviour
 	
     public static void SetActive(bool status)
     {
-        ListUI[5].gameObject.SetActive(status);
-        ListUI[4].gameObject.SetActive(status);
-        ListUI[3].gameObject.SetActive(status);
-        ListUI[2].gameObject.SetActive(status);
+        foreach (var item in ListUI)
+        {
+            if (item.name.Contains("Button"))
+            {
+                item.gameObject.SetActive(status);
+            }
+        }
     }
 
     public static void GetPanel()
     {
-        ListUI[1].gameObject.SetActive(true);
+        foreach (var item in ListUI)
+        {
+            if (item.name == "Panel")
+            {
+                item.gameObject.SetActive(true);
+            }
+        }
     }
     public static void GetPanelFail()
     {
-        ListUI[0].gameObject.SetActive(true);
+        foreach (var item in ListUI)
+        {
+            if (item.name == "Panel (1)")
+            {
+                item.gameObject.SetActive(true);
+            }
+        }
     }
     public static void HidePanelFail()
     {
-        ListUI[5].gameObject.SetActive(false);
-        ListUI[4].gameObject.SetActive(false);
-        ListUI[3].gameObject.SetActive(false);
-        ListUI[2].gameObject.SetActive(false);
-        ListUI[1].gameObject.SetActive(false);
-        ListUI[0].gameObject.SetActive(false);
+        foreach (var item in ListUI)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
 }
