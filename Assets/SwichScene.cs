@@ -26,21 +26,28 @@ public class SwichScene : MonoBehaviour
     {
         Random rand = new Random();
 
-        if (evnt == 0)
-        {
-            evnt = rand.Next(0, list.Count);
-            Debug.Log(evnt);
-        }
+        //if (evnt == 0)
+        //{
+        //    evnt = rand.Next(0, list.Count);
+        //    Debug.Log(evnt);
+        //}
         if (flag && list[fire] == item)
         {
             GetComponent<Renderer>().material.mainTexture = texture;
         }
         
     }
-
+    //TODO Нужно потом выпилить рандом отсюда
     void OnMouseDown()
     {
+        Random rand = new Random();
+        if (evnt == 0)
+        {
+            evnt = rand.Next(0, list.Count);
+            Debug.Log(evnt);
+        }
         Debug.Log(flag);
+
         if (list[fire] == item)
         {
             Debug.Log(fire);
