@@ -14,6 +14,6 @@ public class dayNightHouseScript : MonoBehaviour {
         Quaternion spinZ = Quaternion.AngleAxis(90*(float)Math.Sin(Rotate), new Vector3(1, 0, 0));
         Quaternion spinY = Quaternion.AngleAxis(270 + 60*(float)Math.Cos(Rotate), new Vector3(0, 1, 0));
         transform.rotation = spinZ * spinY;
-        Rotate-=0.016666666666666;
+        Rotate-=0.0001;
     }
 }
