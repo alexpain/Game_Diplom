@@ -38,9 +38,7 @@ public class SwichScene : MonoBehaviour
         }
         if (flag && list[fire] == item)
         {
-            item.GetComponent<Renderer>().material.mainTexture = texture;
-            
-
+            GetComponent<Renderer>().material.mainTexture = texture;
         }
         
     }
