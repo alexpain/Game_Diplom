@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Аction : MonoBehaviour {
-
+public class Аction : MonoBehaviour
+{
+    private static int maxPoint;
+    void Start()
+    {
+        maxPoint = 100;
+    }
+    
     public void OnMouseDown()
     {
         Debug.Log("asdasd");
@@ -18,8 +24,11 @@ public class Аction : MonoBehaviour {
 
     public void SetАction()
     {
+        Points points = new Points();
+        points.Point = maxPoint;
         MyUI.SetActive(false);
         MyUI.GetPanel();
+        
     }
     public void GetPanelFail()
     {
@@ -29,6 +38,7 @@ public class Аction : MonoBehaviour {
 
     public void HidePanelFail()
     {
+        maxPoint = maxPoint - 10;
         MyUI.HidePanelFail();
     }
 

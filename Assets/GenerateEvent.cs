@@ -25,7 +25,7 @@ public class GenerateEvent : MonoBehaviour
 	    
 	    if (temp == 0)
 	    {
-            temp = rand.Next(1000, 5000);
+            temp = rand.Next(500, 4000);
             Debug.Log(temp);
             
         }
